@@ -1,6 +1,20 @@
 #include "CVector.h"
 #include "glut.h"
 
+//-演算子のオーバーロード
+//CVector - CVector の演算結果を返す
+CVector CVector::operator-(const CVector& v) const
+{
+	return CVector(mX - v.mX, mY - v.mY, mZ - v.mZ);
+}
+
+//+演算子のオーバーロード
+//CVector + CVector の演算結果を返す
+CVector CVector::operator+(const CVector& v) const
+{
+	return CVector(mX + v.mX, mY + v.mY, mZ + v.mZ);
+}
+
 //Set(X座標, Y座標, Z座標)
 void CVector::Set(float x, float y, float z)
 {

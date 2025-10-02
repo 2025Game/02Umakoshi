@@ -10,6 +10,7 @@
 #include "CCharacterManager.h"
 #include "CGame.h"
 #include "CSound.h"
+#include "CVector.h"
 
 class CApplication
 {
@@ -32,6 +33,8 @@ public:
 	
 
 private:
+	CVector mEye;
+
 	CSound mSoundOver;
 	
 	CSound mSoundBgm;	//BGM
