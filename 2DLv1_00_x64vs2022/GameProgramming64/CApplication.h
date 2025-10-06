@@ -11,10 +11,12 @@
 #include "CGame.h"
 #include "CSound.h"
 #include "CVector.h"
+#include "CModel.h"
 
 class CApplication
 {
 public:
+
 	static CCharacterManager* CharacterManager();
 	static CTexture* Texture();
 
@@ -33,6 +35,9 @@ public:
 	
 
 private:
+	//モデルクラスのインスタンス作成
+	CModel mModel;
+
 	CVector mEye;
 
 	CSound mSoundOver;

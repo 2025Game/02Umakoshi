@@ -6,6 +6,8 @@
 #include "CTriangle.h"
 #include "CVector.h"
 
+//モデルデータの指定
+#define MODEL_OBJ "res\\obj.obj", "res\\obj.mtl"
 
 #define SOUND_BGM "res\\mario.wav" //BGM音声ファイル
 #define SOUND_OVER "res\\mdai.wav" //ゲームオーバー音声ファイル
@@ -17,6 +19,8 @@ void CApplication::Start()
 {
 	mEye = CVector(1.0f, 2.0f, 3.0f);
 
+	//モデルファイルの入力
+	mModel.Load(MODEL_OBJ);
 
 }
 
