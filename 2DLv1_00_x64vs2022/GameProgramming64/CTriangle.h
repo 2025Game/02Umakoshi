@@ -3,6 +3,8 @@
 #define CTRIANGLE_H
 
 #include "CVector.h"
+#include <vector>
+
 /*
 三角形クラス
 */
@@ -19,6 +21,11 @@ public:
 private:
 	CVector mV[3]; //頂点座標
 	CVector mN; //法線
+	private:
+	//三角形の可変長配列
+		std::vector <CTriangle> mTriangles;
+
+
 };
 #endif
 

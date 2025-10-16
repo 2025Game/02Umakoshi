@@ -1,6 +1,8 @@
 #include "CTriangle.h"
 #include "glut.h"
 
+
+
 //頂点座標設定
 //Vertex(頂点1, 頂点2, 頂点3)
 void CTriangle::Vertex(const CVector& v0, const CVector& v1, const CVector& v2) {
