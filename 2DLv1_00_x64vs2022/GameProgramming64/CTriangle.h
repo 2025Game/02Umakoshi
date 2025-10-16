@@ -1,31 +1,28 @@
 #pragma once
 #ifndef CTRIANGLE_H
 #define CTRIANGLE_H
-
-#include "CVector.h"
-#include <vector>
-
+#include"CVector.h"
 /*
 三角形クラス
 */
-class CTriangle {
+class CTriangle
+{
 public:
 	//頂点座標設定
-	//Vertex(頂点1, 頂点2, 頂点3)
+	//Vertex(頂点1,頂点２,頂点３)
 	void Vertex(const CVector& v0, const CVector& v1, const CVector& v2);
 	//法線設定
 	//Normal(法線ベクトル)
 	void Normal(const CVector& n);
+	//Normal(法線ベクトル１,法線ベクトル2,法線ベクトル3)
+	void Normal(const CVector& v0, const CVector& v1, const CVector& v2);
+
 	//描画
 	void Render();
 private:
-	CVector mV[3]; //頂点座標
-	CVector mN; //法線
-	private:
-	//三角形の可変長配列
-		std::vector <CTriangle> mTriangles;
-
-
+	CVector mV[3];//頂点座標
+	CVector mN[3];//法線
 };
 #endif
+
 

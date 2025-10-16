@@ -77,4 +77,9 @@ void CApplication::Update()
 
 	mModel.Render();
 
+	//•`‰æŠ®—¹
+	//glEnd();
 }
+
+
+
