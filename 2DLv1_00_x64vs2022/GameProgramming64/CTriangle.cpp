@@ -1,5 +1,13 @@
 #include"CTriangle.h"
 #include"glut.h"
+int CTriangle::MaterialIdx()
+{
+	return mMaterialIdx;
+}
+void CTriangle::MaterialIdx(int idx)
+{
+	mMaterialIdx = idx;
+}
 //頂点座標設定
 //Vertex(頂点１,頂点2,頂点3)
 void CTriangle::Vertex(const CVector& v0, const CVector& v1, const CVector& v2)
