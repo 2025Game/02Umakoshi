@@ -9,6 +9,9 @@
 class CMatrix
 {
 public:
+	//*演算子のオーバーロード
+	//CMatrix * CMatrix の演算結果を返す
+	const CMatrix operator*(const CMatrix& m) const;
 	//表示確認用
 	//４×4の行列を画面出力
 	void Print();
