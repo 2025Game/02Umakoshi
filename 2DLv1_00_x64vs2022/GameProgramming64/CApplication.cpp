@@ -33,6 +33,10 @@ void CApplication::Start()
 	mModel.Load(MODEL_OBJ);
 
 	mBackGround.Load(MODEL_BACKGROUND);
+
+	CMatrix matrix;
+	matrix.Print();
+
 }
 
 void CApplication::Update()
