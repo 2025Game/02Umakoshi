@@ -37,6 +37,13 @@ void CApplication::Start()
 	CMatrix matrix;
 	matrix.Print();
 
+	mCharacter.Model(&mModel);
+	mCharacter.Scale(CVector(0.1f, 0.1f, 0.1f));
+	mPlayer.Model(&mModel);
+	mPlayer.Scale(CVector(0.1f, 0.1f, 0.1f));
+	mPlayer.Position(CVector(0.0f, 0.0f, -3.0f));
+	mPlayer.Rotation(CVector(0.0f, 180.0f, 0.0f));
+
 }
 
 void CApplication::Update()
@@ -82,17 +89,16 @@ void CApplication::Update()
 	//•`‰æŠJn
 
 
-	CMatrix matrix, position, rotation, scale;
-	position.Translate(0.5f, 1.8f, 0.5f);//ˆÚ“®s—ñİ’è
-	rotation.RotateY(180.0f);//‰ñ“]s—ñİ’è
-	scale.Scale(0.1f, 0.1f, 0.1f);//Šg‘åk¬s—ñİ’è
-	matrix = scale * rotation * position;//‡¬s—ñİ’è
-	mModel.Render(matrix);
+	mCharacter.Update();
+	mCharacter.Render();
+	mPlayer.Update();
+	mPlayer.Render();
 
 
 	mBackGround.Render();
 	//•`‰æŠ®—¹
 	//glEnd();
 }
+
 
 
