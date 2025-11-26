@@ -1,59 +1,35 @@
 #include "CBullet.h"
-#include "CApplication.h"
 
+//幅と奥行きの設定
+//Set(幅、奥行き)
+void CBullet::Set(float w, float d)
+{
+	//スケール設定
+	mScale = CVector(1.0f, 1.0f, 1.0f);
+	//三角形の頂点設定
+	mT.Vertex(CVector(w, 0.0f, 0.0f), CVector(0.0f, 0.0f, -d), CVector(-w, 0.0f, 0.0f));
 
+	//三角形の法線設定
+	mT.Normal(CVector(0.0f, 1.0f, 0.0f));
+}
+//更新
 void CBullet::Update()
 {
-	if (mState == EState::EMOVE)
-	{
-	float y = Y() + H();
-	
-	if(y > 620.0f)
-		
-			{
-				y = 0.0f;
-			}
-			Y(y);
-	}
-}
-CBullet::CBullet()
-{
-	mState = EState::ESTOP;
-	
-}
-bool CBullet::Collision(CRectangle* rect)
-{
-	if (CRectangle::Collision(rect)) 
-	{
-		mState = EState::ESTOP;
-		return true;
-	}
-	return false;
+	CTransform::Update();
+	//位置情報更新　進行方向へ１進む
+	mPosition = mPosition + CVector(0.0f, 0.0f, 1.0f) * mMatrixRotate;
 
 }
-CBullet::CBullet(float x, float y, float w, float h, float l, float r, float b, float t, CTexture* pt)
+//描画
+void CBullet::Render()
 {
-	Set(x, y, w, h);
-	Texture(pt, l, r, b, t);
-	mTag = ETag::EBULLET;
-	mState = EState::EMOVE;
-}
-void CBullet::Collision()
-{
-	CApplication::CharacterManager()->Collision(this);
+	//DIFFUSE黄色設定
+	float c[] = { 1.0f,1.0f,0.0f,1.0f };
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, c);
+	//三角形描画
+
+	mT.Render(mMatrix);
+
 }
 
-void CBullet::Collision(CCharacter* m, CCharacter* o)
-{
-	switch (o->Tag())
-	{
-	case ETag::EBULLET:
-		break;
-	default:
-		if (CRectangle::Collision(o))
-		{
-			mState = EState::ESTOP;
-			mEnabled = false;
-		}
-	}
-}
+
