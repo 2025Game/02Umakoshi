@@ -1,50 +1,103 @@
-#pragma once
-#ifndef CMATERIAL_H
-#define CMATERIAL_H
-#define MATERIAL_NAME_LEN 64//名前の長さ
-#include"CTexture.h"
-#include"CVertex.h"
+#include"CMaterial.h"
+//memset,strncpyのインクルード
+#include<string.h>
+#include"glut.h"
 
 /*
-マテリアルクラス
-マテリアルのデータを使う
+strncpy(char*str1,const char*str2,int len)
+コピー先str1にコピー元str2の文字をlen文字数までコピーする
 */
-class CMaterial
+char* strncpy(char* str1, const char* str2, int len)
 {
-public:
-	//デフォルトコンストラクタ
-	CMaterial();
-	//マテリアルを有効にする
-	void Enabled();
-	//マテリアルの名前の取得
-	char* Name();
-	//マテリアルの名前を取得する
-	//NAME(マテリアルの名前)
-	void Name(char* name);
-	//mDiffuse配列の取得
-	float* Diffuse();
-	//マテリアルを無効化する
-	void Disabled();
-	//テクスチャの取得
-	CTexture* Texture();
-	//頂点数の設定
-	//VertexNum(頂点数
-	void VertexNum(int num);
-	//頂点数の取得
-	int VertexNum();
+	int i = 0;
+	//iがlenより小さく、かつ、コピー元が終わりでない間繰り返し
+	while (i < len && *str2 != '\0')
+	{
+		*(str1 + i) = *str2;//コピー先にコピー元を代入
+		str2++;//コピー元を次へ
+		i++;
+	}
+	str1[i] = '\0';//コピー先の文字列に終わり
+	return str1;//コピー先の先頭アドレスを返却
+}
+//デフォルトコンストラクタ
+CMaterial::CMaterial()
+	:mVertexNum(0)
+{
+	//名前を０で埋め
+	memset(mName, 0, sizeof(mName));
+	//0で埋める
+	memset(mDiffuse, 0, sizeof(mDiffuse));
+}
+
+//マテリアルを有効にする
+void CMaterial::Enabled()
+{
+	//拡散光の設定
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, mDiffuse);
+	//テクスチャあり
+	if (mTexture.Id())
+	{
+		//テクスチャを使用可能にする
+		glEnable(GL_TEXTURE_2D);
+		//テクスチャをバインドする
+		glBindTexture(GL_TEXTURE_2D, mTexture.Id());
+		//アルファブレンドを有効にする
+		glEnable(GL_BLEND);
+		//ブレンド方法を指定
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	}
+
+}
+
+//マテリアルの名前の取得
+char* CMaterial::Name()
+{
+	return mName;
+}
+//マテリアルの名前を設定する
+//Name(マテリアルの名前)
+void CMaterial::Name(char* name)
+{
+	strncpy(mName, name, MATERIAL_NAME_LEN);
+}
+//mDiffuse配列の取得
+float* CMaterial::Diffuse()
+{
+	return mDiffuse;
+}
+
+//マテリアルを無効する
+void CMaterial::Disabled()
+{
+	//テクスチャあり
+	if (mTexture.Id())
+	{
+		//アルファブレンドを無効
+		glDisable(GL_BLEND);
+		//テクスチャのバインドを解く
+		glBindTexture(GL_TEXTURE_2D, 0);
+		//テクスチャを無効にする
+		glDisable(GL_TEXTURE_2D);
+	}
+}
+
+CTexture* CMaterial::Texture()
+{
+	return &mTexture;
+}
+
+void CMaterial::VertexNum(int num)
+{
+	mVertexNum = num;
+}
+
+int CMaterial::VertexNum()
+{
+	return mVertexNum;
+}
 
 
-private:
-	//マテリアル名
-	char mName[MATERIAL_NAME_LEN + 1];
-	//拡散光の色RGBA
-	float mDiffuse[4];
-	//テクスチャ
-	CTexture mTexture;
-	//マテリアル毎の頂点数
-	int mVertexNum;
-};
-
-#endif
 
 
