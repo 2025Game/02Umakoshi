@@ -1,3 +1,4 @@
+
 #include "CApplication.h"
 #include "CRectangle.h"
 #include "CInput.h"
@@ -53,6 +54,9 @@ void CApplication::Start()
 
 void CApplication::Update()
 {
+	//タスクマネージャーの更新
+	mTaskManager.Update();
+
 	if (mInput.Key('J'))
 	{
 		mEye = mEye - CVector(0.1f, 0.0f, 0.0f);
@@ -96,7 +100,7 @@ void CApplication::Update()
 
 	//mCharacter.Update();
 	//mCharacter.Render();
-	mPlayer.Update();
+	//mPlayer.Update();
 	//カメラのパラメータを作成する
 	CVector e, c, u;//視点、注視点、上方向
 	//視点を求める
@@ -108,12 +112,13 @@ void CApplication::Update()
 	//カメラの設定
 	gluLookAt(e.X(), e.Y(), e.Z(), c.X(), c.Y(), c.Z(), u.X(), u.Y(), u.Z());
 
-	mPlayer.Render();
+	//mPlayer.Render();
 
 	//mPlayer.bullet.Update();
 	//mPlayer.bullet.Render();
-	//タスクマネージャーの更新
-	mTaskManager.Update();
+
+	//タスクリストの削除
+	mTaskManager.Delete();
 	//タスクマネージャーの描画
 	mTaskManager.Render();
 	mBackGround.Render();
@@ -121,6 +126,5 @@ void CApplication::Update()
 	//描画完了
 	//glEnd();
 }
-
 
 
