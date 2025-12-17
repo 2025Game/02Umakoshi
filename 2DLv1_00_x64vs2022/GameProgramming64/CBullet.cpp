@@ -38,11 +38,12 @@ void CBullet::Render()
 	//ŽOŠpŒ`•`‰æ
 
 	mT.Render(mMatrix);
-
+	mCollider.Render();
 }
 
 CBullet::CBullet()
 	:mLife(50)
+	, mCollider(this, &mMatrix, CVector(0.0f, 0.0f, 0.0f), 0.1)
 {
 }
 

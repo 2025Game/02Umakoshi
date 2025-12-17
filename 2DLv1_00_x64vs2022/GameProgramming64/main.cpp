@@ -1,4 +1,3 @@
-
 #include <Windows.h>
 #include "glew.h"
 #include "glut.h"
@@ -54,7 +53,7 @@ void idle() {
 	if (last_time.QuadPart == 0) {
 		QueryPerformanceCounter(&last_time);
 	}
-	do{
+	do {
 		//現在のシステムのカウント数を取得
 		QueryPerformanceCounter(&time);
 
@@ -66,8 +65,9 @@ void idle() {
 	display();
 }
 
-int main(void)
+int main(int argc, char** argv)
 {
+	glutInit(&argc, argv);
 	GLFWwindow* window;
 
 	/* Initialize the library */
@@ -116,7 +116,7 @@ int main(void)
 	//固定シェーダー用
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
-	float lightPosition[] = {0.0f, 100.0f, 100.0f, 1.0f};
+	float lightPosition[] = { 0.0f, 100.0f, 100.0f, 1.0f };
 	glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
 	glEnable(GL_NORMALIZE);
 #endif
@@ -146,3 +146,6 @@ int main(void)
 	glfwTerminate();
 	return 0;
 }
+
+
+
