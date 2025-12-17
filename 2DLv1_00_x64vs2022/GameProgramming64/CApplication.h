@@ -54,7 +54,8 @@ private:
 	//CCharacter3 mCharacter;
 	CPlayer mPlayer;
 	static CTaskManager mTaskManager;
-
+	//C5ƒ‚ƒfƒ‹
+	CModel mModelC5;
 };
 
 
