@@ -29,10 +29,10 @@ void CBullet::Set(float w, float d) {
 
 //更新
 void CBullet::Update() {
-	CTransform::Update();
-	//位置更新　進行方向へ１進む→ヒント 17
-	mPosition = mPosition + CVector(0.0f, 0.0f, 1.0f) * mMatrixRotate;
-	//生存時間の判定
+	//	CTransform::Update();
+		//位置更新　進行方向へ１進む→ヒント 17
+		//mPosition = mPosition + CVector(0.0f, 0.0f, 1.0f) * mMatrixRotate;
+		//生存時間の判定
 	if (mLife-- > 0) {
 		CTransform::Update();
 		//位置更新
@@ -61,3 +61,5 @@ void CBullet::Collision()
 	//衝突処理を実行
 	CCollisionManager::Instance()->Collision(&mCollider, COLLISIONRANGE);
 }
+
+
