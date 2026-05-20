@@ -14,6 +14,8 @@ CXPlayer::CXPlayer()
 	mState = mpState->State();
 	//歩く状態の作成
 	mpWalk = std::make_unique<CPlayerWalk>();
+	//攻撃状態の作成
+	mpAttack = std::make_unique<CPlayerAttack>();
 }
 
 void CXPlayer::Update()
@@ -34,8 +36,12 @@ void CXPlayer::Update()
 			EState::EWALK:
 				mpState = mpWalk.get();
 				break;
-			default:
-				break;
+				case
+				EState::EATTACK:
+					mpState = mpAttack.get();
+					break;
+				default:
+					break;
 
 		}
 		mpState->Start(this);
@@ -63,7 +69,7 @@ void CXPlayer::Collision(CCollider* m, CCollider* o)
 				//位置の更新(mPosition + adjust)
 				mPosition = mPosition + adjust;
 				//行列の更新
-				CTransform:: Update();
+				CTransform::Update();
 			}
 		}
 		break;

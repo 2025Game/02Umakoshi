@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CPlayerAttack.cpp" />
     <ClCompile Include="CPlayerIdle.cpp" />
     <ClCompile Include="CPlayerWalk.cpp" />
     <ClCompile Include="CXPlayer.cpp" />
@@ -69,6 +70,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CPlayerAttack.h" />
     <ClInclude Include="CPlayerIdle.h" />
     <ClInclude Include="CPlayerWalk.h" />
     <ClInclude Include="CState.h" />
