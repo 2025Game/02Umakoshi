@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CXPlayer.cpp" />
     <ClCompile Include="CApplication3.cpp" />
     <ClCompile Include="CApplication.cpp" />
     <ClCompile Include="CBillBoard.cpp" />
@@ -66,6 +67,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CXPlayer.h" />
     <ClInclude Include="CApplication3.h" />
     <ClInclude Include="CApplication.h" />
     <ClInclude Include="CBillBoard.h" />
