@@ -30,6 +30,11 @@ const CMatrix& CTransform::MatrixRotate() const
 	return mMatrixRotate;
 }
 
+const CVector& CTransform::Rotation()const
+{
+	return mRotation;
+}
+
 void CTransform::Update(const CVector& pos, const CVector& rot
 	, const CVector& scale)
 {
@@ -53,3 +58,6 @@ void CTransform::Update() {
 	//çáê¨çsóÒÇÃê›íË
 	mMatrix = mMatrixScale * mMatrixRotate * mMatrixTranslate;
 }
+
+
+
