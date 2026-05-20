@@ -12,12 +12,34 @@ CXPlayer::CXPlayer()
 	mpState = mpIdle.get();
 	mpState->Start(this);
 	mState = mpState->State();
+	//歩く状態の作成
+	mpWalk = std::make_unique<CPlayerWalk>();
 }
 
 void CXPlayer::Update()
 {
 	//状態の更新
 	mpState->Update();
+
+	//状態の切り替え
+	if (mState != mpState->State())
+	{
+		mState = mpState->State();
+		switch (mState)
+		{
+		case EState::EIDLE:
+			mpState = mpIdle.get();
+			break;
+			case
+			EState::EWALK:
+				mpState = mpWalk.get();
+				break;
+			default:
+				break;
+
+		}
+		mpState->Start(this);
+	}
 
 	//GRAVITYの大きさだけ、下方向へ移動させる
 	mPosition = mPosition - CVector(0.0f, GRAVITY, 0.0f);
@@ -41,7 +63,7 @@ void CXPlayer::Collision(CCollider* m, CCollider* o)
 				//位置の更新(mPosition + adjust)
 				mPosition = mPosition + adjust;
 				//行列の更新
-				CTransform;; Update();
+				CTransform:: Update();
 			}
 		}
 		break;

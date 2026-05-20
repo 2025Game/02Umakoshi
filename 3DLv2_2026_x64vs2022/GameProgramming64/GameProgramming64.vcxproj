@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPlayerIdle.cpp" />
+    <ClCompile Include="CPlayerWalk.cpp" />
     <ClCompile Include="CXPlayer.cpp" />
     <ClCompile Include="CApplication3.cpp" />
     <ClCompile Include="CApplication.cpp" />
@@ -69,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CPlayerIdle.h" />
+    <ClInclude Include="CPlayerWalk.h" />
     <ClInclude Include="CState.h" />
     <ClInclude Include="CXPlayer.h" />
     <ClInclude Include="CApplication3.h" />
