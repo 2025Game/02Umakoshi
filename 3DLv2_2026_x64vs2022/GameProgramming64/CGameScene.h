@@ -14,5 +14,7 @@ public:
 	void Update();
 private:
 	CModel mBackGround; //”wŒiƒ‚ƒfƒ‹
+	CModelX mPlayer;
+
 };
 #endif
