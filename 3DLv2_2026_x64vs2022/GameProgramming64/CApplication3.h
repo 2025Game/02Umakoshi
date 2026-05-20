@@ -4,6 +4,7 @@
 #define CAPPLICATION3_H
 
 #include"CTitleScene.h"
+#include"CGameScene.h"
 #include<memory>//std::shared_ptr
 
 class CApplication3
@@ -18,7 +19,7 @@ private:
 	std::unique_ptr<CSceneBase>mpScene;
 
 };
-#endif // !CAPPLICATION3?H
+#endif // CAPPLICATION3_H
 
 
 
