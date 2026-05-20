@@ -27,6 +27,7 @@ void CGameScene::Load()
 	xchar->Init(&mPlayer);
 	//キャラクタのモデルの設定
 	character->Model(&mBackGround);
+	mColliderMesh.Set(nullptr, nullptr, &mBackGround);
 }
 
 void CGameScene::Update()
@@ -36,8 +37,12 @@ void CGameScene::Update()
 
 	//全キャラクタの更新
 	CTaskManager::Instance()->Update();
+	//衝突処理の呼び出し
+	CTaskManager::Instance()->Collision();
 	//全キャラクタの描画
 	CTaskManager::Instance()->Render();
+	//コライダの描画
+	CCollisionManager::Instance()->Render();
 }
 
 

@@ -1,8 +1,12 @@
 #pragma once
 #ifndef CGAMESCENE_H
 #define CGAMESCENE_H
-#include "CSceneBase.h"
-#include "CModel.h"
+
+#include"CSceneBase.h"
+#include"CModel.h"
+#include"CColliderMesh.h"
+#include"CCollisionManager.h"
+
 //ゲームシーン
 class CGameScene :public CSceneBase
 {
@@ -13,8 +17,11 @@ public:
 	//シーンの更新処理
 	void Update();
 private:
-	CModel mBackGround; //背景モデル
+	CModel mBackGround;//背景モデル
 	CModelX mPlayer;
-
+	CColliderMesh mColliderMesh;//メッシュコライダ
 };
-#endif
+#endif // !CGAMESCENE_H
+
+
+
