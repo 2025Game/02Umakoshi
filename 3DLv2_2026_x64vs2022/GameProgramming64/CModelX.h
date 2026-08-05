@@ -180,6 +180,7 @@ public:
 	CModelXFrame(CModelX* model);
 	//デストラクタ
 	~CModelXFrame();
+	char* name() { return mpName; }
 private:
 	CMatrix mCombinedMatrix;	//合成行列
 	CMesh* mpMesh;	//Meshデータ
@@ -265,4 +266,6 @@ private:
 };
 
 #endif
+
+
 
