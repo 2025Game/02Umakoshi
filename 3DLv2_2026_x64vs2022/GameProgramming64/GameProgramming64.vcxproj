@@ -22,6 +22,7 @@
     <ClCompile Include="CColliderCapsule.cpp" />
     <ClCompile Include="CCube.cpp" />
     <ClCompile Include="CPaladin.cpp" />
+    <ClCompile Include="CPaladinIdle.cpp" />
     <ClCompile Include="CPlayerAttack.cpp" />
     <ClCompile Include="CPlayerIdle.cpp" />
     <ClCompile Include="CPlayerJump.cpp" />
@@ -77,6 +78,7 @@
     <ClInclude Include="CColliderCapsule.h" />
     <ClInclude Include="CCube.h" />
     <ClInclude Include="CPaladin.h" />
+    <ClInclude Include="CPaladinIdle.h" />
     <ClInclude Include="CPlayerAttack.h" />
     <ClInclude Include="CPlayerIdle.h" />
     <ClInclude Include="CPlayerJump.h" />

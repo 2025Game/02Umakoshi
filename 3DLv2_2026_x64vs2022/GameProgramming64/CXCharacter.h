@@ -5,13 +5,13 @@
 #include "CMatrix.h"
 #include "CCharacter3.h"
 
-class CXCharacter : public CCharacter3 
+class CXCharacter : public CCharacter3
 {
 public:
 	virtual ~CXCharacter() {
 		SAFE_DELETE_ARRAY(mpCombinedMatrix);
 	}
-
+	CModelX* Model() { return mpModel; }
 	void Update();
 	CXCharacter();
 	//初期化処理
@@ -35,4 +35,6 @@ protected:
 	float mAnimationFrameSize;//アニメーションの再生フレーム数
 };
 #endif
+
+
 
