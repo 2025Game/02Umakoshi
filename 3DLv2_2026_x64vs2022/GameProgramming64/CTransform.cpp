@@ -85,6 +85,9 @@ void CTransform::Update() {
 	//©•ª‚ªg—p‚·‚é‡¬s—ñ‚É‚ÍŠg‘åk¬s—ñ‚ğŠ|‚¯‚é
 	mMatrix = mMatrixScale * mCombinedMatrix;
 }
-
+CTransform* CTransform::Parent()
+{
+	return mpParent;
+}
 
 
