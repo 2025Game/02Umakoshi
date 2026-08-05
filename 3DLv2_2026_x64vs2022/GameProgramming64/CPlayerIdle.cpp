@@ -36,6 +36,11 @@ void CPlayerIdle::Update()
 		//Iキーが押されているときは攻撃状態にする
 		mState = EState::EATTACK;
 	}
+	if (mInput.Key(' '))
+	{
+		//SPACEキーが押されているときはジャンプ状態にする
+		mState = EState::EJUMP;
+	}
 }
 
 
